@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1698064698139),
+    lastupdate: new Date(1698066322758),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2544,20 +2544,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 
 
-<div class="new-meta-item browse">
-  <a class='notlink'>
-    <p>
-      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="artalk_visitors" data-page-key="/2023/10/16/%E5%AE%89%E5%B1%B1%E5%8F%A4%E9%81%93%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%B0%8F%E6%B3%89%E6%BA%AA%E6%9D%91%E5%92%8C%E5%B0%8F%E6%B3%89%E8%A5%BF%E6%9D%91/">
-        <i class="fa-light fa-loader fa-spin fa-fw" aria-hidden="true"></i>
-      </span>
-      
-      <span>次浏览</span>
-    </p>
-  </a>
-</div>
-
 
           
         
@@ -2997,68 +2983,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
       <script>
-  volantis.layoutHelper("comments",`<div id="artalk_container"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`);
-  function load_artalk() {
-    if(!document.querySelectorAll("#artalk_container")[0])return;
-    volantis.css("https://unpkg.com/artalk@2.2.8/dist/Artalk.css");
-    volantis.js("https://unpkg.com/artalk@2.2.8/dist/Artalk.js").then(pjax_artalk);
-  }
-
-  function pjax_artalk() {
-    if(!document.querySelectorAll("#artalk_container")[0])return;
-    let path = pdata.commentPath;
-    let placeholder = pdata.commentPlaceholder || "欢迎吐槽" || "";
-    if (path.length == 0) {
-      path = '' || decodeURI(window.location.pathname);
-    }
-    if(!':year/:month/:day/:title/'.includes('/index.html')) {
-      path = path.replaceAll('/index.html', '/').replaceAll('.html', '')
-    }
-
-    volantis.artalk = new Artalk(Object.assign({"js":"https://unpkg.com/artalk@2.2.8/dist/Artalk.js","css":"https://unpkg.com/artalk@2.2.8/dist/Artalk.css","server":"https://localhost:4000","path":null,"placeholder":"欢迎吐槽","noComment":"恭喜你，你是沙发","imageUploader":{"api":null,"token":null,"resp":null}}, {
-      el: '#artalk_container',
-      pageKey: path,
-      pageTitle: document.title,
-      placeholder: placeholder,
-      useBackendConf: true,
-      site: 'Hexo',
-      darkMode: volantis.dark.mode === "dark",
-      pvEl: '#artalk_visitors',
-
-      
-    }));
-
-    Artalk.use(ctx => {
-      ctx.on('list-loaded', () => {
-        if (typeof VolantisFancyBox === "undefined"){
-          const checkFancyBox = setInterval(() => {
-            if(typeof VolantisFancyBox === "undefined") return;
-            clearInterval(checkFancyBox);
-            VolantisFancyBox.groupBind('.atk-content img:not([atk-emoticon])', 'Comments');
-          })
-        } else {
-          VolantisFancyBox.groupBind('.atk-content img:not([atk-emoticon])', 'Comments');
-        }
-      })
-    })
-  }
-
-  load_artalk();
-  volantis.pjax.push(()=>{
-    if (typeof Artalk === "undefined") {
-      load_artalk();
-    } else {
-      pjax_artalk();
-    }
-  },'artalk');
-
-  function dark_artalk() {
-    if(!document.querySelectorAll("#artalk_container")[0]) return;
-    volantis.artalk.then(ctx => {
-      ctx.setDarkMode(volantis.dark.mode === "dark")
-    })
-  }
-  volantis.dark.push(dark_artalk);
+  volantis.layoutHelper("comments",`<div id="lv-container" data-id="city" data-uid="MTAyMC81OTEyNC8zNTU4Ng==">
+  <noscript><div><i class='fa-solid fa-exclamation-triangle'>&nbsp;Unable to load Livere, please make sure your network can access.</div></noscript>
+</div>`)
+</script>
+<script data-pjax type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
 </script>
 
     
